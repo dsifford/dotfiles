@@ -1,0 +1,30 @@
+Host *
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/id_ed25519
+    IgnoreUnknown UseKeychain
+    UseKeychain yes
+
+{{- if eq .chezmoi.fqdnHostname "archlinux.desktop" }}
+
+Host nas
+    HostName 192.168.1.216
+    User dsifford
+    Port 51222
+    RequestTTY force
+    RemoteCommand cd /volume1 && bash -l
+
+Host pi
+    HostName 192.168.1.225
+    User pi
+
+{{- end }}
+
+Host github.com
+    HostName github.com
+    User git
+
+Host gitlab.com
+    HostName gitlab.com
+    User git
+
+# vim: ft=sshconfig

@@ -1,0 +1,101 @@
+[alias]
+    ai   = add-interactive
+    ch   = checkout
+    chb  = checkout-branch
+    db   = delete-branch
+    f    = fetch --all
+    lg   = log --oneline --all --graph --no-merges
+    lsi  = list-issues
+    lsp  = list-pull-requests
+    peek = ! git log --color --format=compact | fzf-tmux --ansi --preview='git show --color {1}'
+    rf   = restore-file
+    root = rev-parse --show-toplevel
+    rs   = restore-staged-file
+    s    = status
+    undo = reset HEAD~
+
+[core]
+    editor = nvim
+    autocrlf = input
+    pager = delta
+
+[color]
+    branch = always
+    status = always
+
+[color "status"]
+    added = green
+    changed = blue
+
+[credential]
+    helper = store
+
+[delta]
+    theme = dracula
+
+[diff]
+    tool = nvimdiff
+    colorMoved = default
+
+[difftool]
+    trustExitCode = true
+
+[fetch]
+    prune = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[merge]
+    tool = nvimdiff
+
+[mergetool]
+    prompt = true
+
+[mergetool "nvimdiff"]
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[pager]
+    diff = delta --navigate
+
+[pretty]
+    compact = format:%C(auto)%h %ar %C(auto)%d %s
+
+[protocol]
+    version = 2
+
+[pull]
+    rebase = true
+
+[push]
+    default = current
+    followTags = true
+
+[rerere]
+    enabled = true
+
+[status]
+    submodulesummary = 1
+    showUntrackedFiles = all
+    showStash = true
+
+[user]
+    email = dereksifford@gmail.com
+    name = Derek Sifford
+
+[url "ssh://git@github.com"]
+    insteadOf = https://github.com
+    insteadOf = http://github.com
+
+[url "ssh://git@gitlab.com"]
+    insteadOf = https://gitlab.com
+    insteadOf = http://gitlab.com
+
+[url "ssh://git@bitbucket.org"]
+    insteadOf = https://bitbucket.org
+    insteadOf = http://bitbucket.org
+
+[init]
+	defaultBranch = main
+
+# vim: set ft=gitconfig:

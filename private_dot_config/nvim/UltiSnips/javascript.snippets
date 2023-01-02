@@ -1,0 +1,21 @@
+snippet cl "console.log"
+console.log($1);$0
+endsnippet
+
+snippet imp "import" b
+import ${2:{ $3 }} from '$1';$0
+endsnippet
+
+snippet req "require" b
+const ${2:{ $3 }} = require('$1');$0
+endsnippet
+
+snippet iife "IIFE"
+((${1:window}) => {$0})($1);
+endsnippet
+
+snippet @td "@typedef" b
+/**
+ * @typedef {${1:type}} ${2:name}
+ */$0
+endsnippet

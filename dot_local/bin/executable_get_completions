@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+#
+# Print a list of bash completions for a given command line.
+#
+# Usage: get_completions <command> [args...]
+#
+
+declare COMP_LINE=$*
+declare -i COMP_POINT=${#COMP_LINE}
+declare -a COMP_WORDS=("$@")
+declare -i COMP_CWORD=$((${#COMP_WORDS[@]} - 1))
+declare -a COMPREPLY
+declare completion
+
+# load bash-completion if necessary
+declare -F _completion_loader &> /dev/null || {
+	declare src
+	for src in \
+		/usr/share/bash-completion/bash_completion \
+		/usr/local/share/bash-completion/bash_completion; do
+		# shellcheck disable=SC1090
+		[ -r "$src" ] && source "$src"
+	done
+}
+
+# For whatever reason, calling this on mac breaks the script
+if [ "$(uname)" != Darwin ]; then
+	_completion_loader "$1"
+fi
+
+completion=$(complete -p "$1" 2> /dev/null | awk '{ print $(NF-1) }')
+
+"$completion"
+
+printf '%s\n' "${COMPREPLY[@]}" | LC_ALL=C sort -u

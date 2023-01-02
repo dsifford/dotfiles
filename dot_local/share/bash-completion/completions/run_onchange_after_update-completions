@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#
+# Script to ensure all bash-completion scripts are up to date
+#
+set -e
+
+completions_dir="${XDG_DATA_HOME:?XDG_DATA_HOME must be defined}/bash-completion/completions"
+
+# install generated completions
+command -v pandoc > /dev/null \
+	&& pandoc --bash-completion > "$completions_dir"/pandoc
+command -v poetry > /dev/null \
+	&& poetry completions bash > "$completions_dir"/poetry
+command -v rustup > /dev/null && {
+	rustup completions bash > "$completions_dir"/rustup
+	rustup completions bash cargo > "$completions_dir"/cargo
+}
+
+declare -A completion_sources=(
+	[git]='https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash'
+	['git-prompt']="https://raw.githubusercontent.com/git/git/v$(git --version | awk '{ print $3 }' | head -n 1)/contrib/completion/git-prompt.sh"
+	[task]='https://raw.githubusercontent.com/GothenburgBitFactory/taskwarrior/2.6.0/scripts/bash/task.sh'
+	[yarn]='https://raw.githubusercontent.com/dsifford/yarn-completion/master/yarn-completion.bash'
+)
+
+for k in "${!completion_sources[@]}"; do
+	echo "$k" "${completion_sources[$k]}"
+	curl --progress-bar --output "$completions_dir"/"$k" "${completion_sources[$k]}"
+done

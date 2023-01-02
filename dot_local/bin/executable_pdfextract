@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+USAGE='
+Extract a subset of pages from <input_pdf> into a new <output_pdf>.
+
+Usage:
+	pdfextract -s NUMBER -e NUMBER <input_pdf> <output_pdf>
+	pdfextract -h | --help
+
+-s NUMBER --start-page=NUMBER  The page number to start extracting.
+-e NUMBER --end-page=NUMBER    The page number to stop extracting.
+'
+
+if ! command -v pdfseparate > /dev/null || ! command -v pdfunite > /dev/null; then
+	echo 'Must have "pdfseparate" and "pdfunite" available in path'
+	exit 1
+fi
+
+if ! OPTS=$(getopt -o 's:e:h' -l 'start-page:,end-page:,help' -n 'pdfextract' -- "$@"); then
+	exit 1
+fi
+eval set -- "$OPTS"
+unset OPTS
+
+declare -i start_page
+declare -i end_page
+declare input_pdf
+declare output_pdf
+
+while true; do
+	case "$1" in
+		-s | --start-page)
+			start_page="$2"
+			shift 2
+			;;
+		-e | --end-page)
+			end_page="$2"
+			shift 2
+			;;
+		-h | --help)
+			echo "$USAGE"
+			exit
+			;;
+		--)
+			shift
+			break
+			;;
+		*)
+			exit 1
+			;;
+	esac
+done
+
+input_pdf=$(realpath "$1") || exit 1
+output_pdf=$(realpath "$2") || exit 1
+
+tmpdir=$(mktemp -td pdfextract.XXXXX)
+
+cd "$tmpdir" || exit 1
+
+pdfseparate -f "$start_page" -l "$end_page" "$input_pdf" '%04d.pdf'
+mapfile -t fileslist < <(find . -type f -name '*.pdf' | sort)
+pdfunite "${fileslist[@]}" "$output_pdf"
+
+rm -r "$tmpdir"

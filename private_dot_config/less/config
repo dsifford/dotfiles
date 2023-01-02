@@ -1,0 +1,7 @@
+#command
+^L undo-hilite
+l  right-scroll
+h  left-scroll
+
+#env
+LESS = -iRF

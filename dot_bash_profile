@@ -4,7 +4,7 @@
 #
 
 # Source pathrc
-[[ -f ~/.dotfiles/pathrc ]] && . ~/.dotfiles/pathrc
+[[ -f ~/.local/lib/pathrc ]] && . ~/.local/lib/pathrc
 
 # Source profile
 [[ -f ~/.profile ]] && . ~/.profile

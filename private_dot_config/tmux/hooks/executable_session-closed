@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#
+# Tmux hook for pruning out old temporary files on session close.
+#
+
+# $XDG_CACHE_HOME -> files not accessed for >90 days
+find "${XDG_CACHE_HOME:-$HOME/.cache}" -type f -atime +90 -delete
+
+# $XDG_CACHE_HOME -> empty directories
+find "${XDG_CACHE_HOME:-$HOME/.cache}" -type d -empty -delete
+
+# Clear out misc garbage files
+__junk_files=(
+    ~/.*_history
+    ~/.serverlessrc
+    ~/.wget-hsts
+    ~/.yarnrc
+)
+for __file in "${__junk_files[@]}"; do
+    [[ -f $__file ]] && rm -f "$__file"
+done
+
+# Clear out misc garbage directories
+__junk_dirs=(
+    ~/.serverless
+    ~/.w3m
+)
+for __dir in "${__junk_dirs[@]}"; do
+    [[ -d $__dir ]] && rm -rf "$__dir"
+done

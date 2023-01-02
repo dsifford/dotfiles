@@ -1,0 +1,162 @@
+#!/usr/bin/env python3
+"""ALPM hook that runs after packages are explicitly installed or removed.
+
+Responsible for keeping the packages.Linux.yml file updated with explicitly
+installed packages.
+"""
+import sys
+from functools import lru_cache
+from os import path, uname
+from shutil import chown
+from subprocess import run  # nosec
+from typing import Dict, FrozenSet, List
+
+import yaml
+
+GENERATED_FILE_PATH = "/home/dsifford/.dotfiles/.lib/config/generated"
+
+# Type that represents the core structure of the yay property of the yaml file
+YayObj = Dict[str, Dict[str, List[str]]]
+
+# fmt: off
+PACKAGES: Dict[str, FrozenSet[str]] = {
+    # Package groups that are being synced.
+    "groups": frozenset([
+        "base-devel",
+        "xorg",
+    ]),
+    # List of packages to be included on desktop only.
+    "archlinux.desktop": frozenset([
+        "plex-media-server",
+        "rclone",
+        "wireguard-tools",
+    ]),
+    # List of packages to be included on laptop only.
+    "archlinux.laptop": frozenset([
+        "acpi",
+        "fwupd",
+    ]),
+    # List of packages to not include in sync.
+    "ignored": frozenset([
+        "bluez-firmware",
+        "intel-ucode",
+        "nvidia",
+        "nvidia-settings",
+        "sof-firmware",
+        "xf86-video-intel",
+    ]),
+}
+# fmt: on
+
+
+class Pacman:
+    """Class responsible for querying and interacting with pacman"""
+
+    @property  # type: ignore
+    @lru_cache
+    def all_packages(self) -> FrozenSet[str]:
+        """Returns a sorted list of every explicitly installed package"""
+        return frozenset(
+            sorted(
+                run(  # nosec
+                    ["pacman", "-Qqe"], capture_output=True, text=True, check=True
+                ).stdout.splitlines()
+            )
+        )
+
+    @property  # type: ignore
+    @lru_cache
+    def aur_packages(self) -> FrozenSet[str]:
+        """Returns a sorted list of explicitly installed AUR packages"""
+        return frozenset(
+            sorted(
+                run(  # nosec
+                    ["pacman", "-Qqme"], capture_output=True, text=True, check=True
+                ).stdout.splitlines()
+            )
+        )
+
+    @property  # type: ignore
+    @lru_cache
+    def group_packages(self) -> FrozenSet[str]:
+        """Returns a sorted list of packages that belong to one of the groups listed in GROUPS"""
+        return frozenset(
+            sorted(
+                run(  # nosec
+                    ["pacman", "-Qqeg", *PACKAGES["groups"]],
+                    capture_output=True,
+                    text=True,
+                    check=True,
+                ).stdout.splitlines()
+            )
+        )
+
+
+def generate_packages_file(pacman: Pacman):
+    """Responsible for generating the base packages file"""
+    file_name = path.join(GENERATED_FILE_PATH, "os.packages.Linux.yml")
+    official = pacman.all_packages.difference(  # type: ignore
+        pacman.aur_packages,
+        pacman.group_packages,
+        PACKAGES["archlinux.desktop"],
+        PACKAGES["archlinux.laptop"],
+        PACKAGES["ignored"],
+    )
+    aur = pacman.aur_packages.difference(  # type: ignore
+        PACKAGES["archlinux.desktop"],
+        PACKAGES["archlinux.laptop"],
+        PACKAGES["ignored"],
+    )
+    with open(file_name, "w") as file:
+        file.write("#\n# THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY.\n#\n")
+        yaml.safe_dump(
+            [
+                {
+                    "yay": {
+                        "groups": sorted(PACKAGES["groups"]),
+                        "official": sorted(official),
+                        "aur": sorted(aur),
+                    }
+                }
+            ],
+            file,
+            sort_keys=False,
+        )
+    chown(file_name, "dsifford", "dsifford")
+
+
+def generate_machine_packages_file(pacman: Pacman, hostname: str):
+    """Responsible for generating the machine-specific packages file"""
+    file_name = path.join(GENERATED_FILE_PATH, f"os.packages.Linux.{hostname}.yml")
+    official = pacman.all_packages.difference(  # type: ignore
+        pacman.aur_packages, pacman.group_packages
+    ).intersection(PACKAGES[hostname])
+    aur = pacman.aur_packages.intersection(PACKAGES[hostname])  # type: ignore
+    content: YayObj = {"yay": {}}
+    if len(official) > 0:
+        content["yay"]["official"] = sorted(official)
+    if len(aur) > 0:
+        content["yay"]["aur"] = sorted(aur)
+    with open(file_name, "w") as file:
+        file.write("#\n# THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY.\n#\n")
+        yaml.safe_dump([content], file, sort_keys=False)
+    chown(file_name, "dsifford", "dsifford")
+
+
+def main():
+    """Main entrypoint for this script"""
+    hostname = uname().nodename
+    if hostname not in PACKAGES:
+        sys.stderr.write(
+            "hostname of system is not one of 'archlinux.desktop' or 'archlinux.laptop'"
+        )
+        sys.exit(1)
+    pacman = Pacman()
+    generate_packages_file(pacman)
+    generate_machine_packages_file(pacman, hostname)
+
+
+if __name__ == "__main__":
+    main()
+
+# vim: set fdn=1:

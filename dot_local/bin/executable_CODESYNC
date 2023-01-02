@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+#
+# Small script used for syncing VSCode extensions between machines.
+#
+# Usage: CODESYNC (push|pull)
+#
+
+if ! command -v code > /dev/null; then
+    echo "vscode cli (code) must be installed"
+    exit 1
+fi
+
+if ! command -v chezmoi > /dev/null; then
+    echo "chezmoi must be installed"
+    exit 1
+fi
+
+declare extensions_file
+declare -A installed
+declare -A saved
+
+extensions_file="$(chezmoi source-path)"/.data/vscode/extensions.txt
+
+if [[ ! -f $extensions_file ]]; then
+    echo "extensions.txt file unable to be found"
+fi
+
+# Update extension list if "push" arg given
+case "$1" in
+	push)
+		code --list-extensions | sort > "$extensions_file"
+		echo Updated extensions.txt.
+        exit 0
+		;;
+esac
+
+# Get all currently installed extensions
+for i in $(code --list-extensions); do
+	installed["$i"]="$i"
+done
+
+# Get the saved extension list
+while read -r i; do
+	saved["$i"]="$i"
+done < "$extensions_file"
+
+# If an installed extension is not found in the extension list, remove it.
+for i in "${installed[@]}"; do
+	[ ! "${saved["$i"]}" ] && code --uninstall-extension "$i"
+done
+
+# If a saved extension is not installed, install it
+for i in "${saved[@]}"; do
+	[ ! "${installed[$i]}" ] && code --install-extension "$i"
+done
