@@ -13,7 +13,7 @@ from typing import Dict, FrozenSet, List
 
 import yaml
 
-GENERATED_FILE_PATH = "/home/dsifford/.dotfiles/.lib/config/generated"
+GENERATED_FILE_PATH = "/home/dsifford/.local/share/chezmoi/.data/pacman"
 
 # Type that represents the core structure of the yay property of the yaml file
 YayObj = Dict[str, Dict[str, List[str]]]
