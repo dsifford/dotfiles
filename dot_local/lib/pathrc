@@ -5,11 +5,12 @@
 declare newpath
 declare -a path=(
 	~/.local/bin
-	"${XDG_DATA_HOME:-$HOME/.local/share}"/{cargo,go,npm}/bin
+	"${XDG_DATA_HOME:-$HOME/.local/share}"/{cargo,go,npm,pyenv}/bin
 	/usr/local/opt/openssl/bin
 	/usr/local/opt/*/libexec/gnubin
     /usr/local/opt/gnu-getopt/bin
 	/usr/local/{bin,sbin}
+    /opt/homebrew/bin
 )
 
 mapfile -t path < <(

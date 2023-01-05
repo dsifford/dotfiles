@@ -1,14 +1,20 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
+tap "mutagen-io/mutagen"
+tap "rippling/rippling", "git@github.com:rippling/homebrew-rippling"
 # Archival front-end
 brew "atool"
+# Official Amazon AWS command-line interface
+brew "awscli"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
 # Programmable completion for Bash 4.2+
 brew "bash-completion@2"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Simple, fast and user-friendly alternative to find
@@ -47,6 +53,10 @@ brew "n"
 brew "neovim"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
+# Python version management
+brew "pyenv"
+# Pyenv plugin to manage virtualenv
+brew "pyenv-virtualenv"
 # File browser
 brew "ranger"
 # Search tool like grep and The Silver Searcher
@@ -61,5 +71,15 @@ brew "tmux"
 brew "tree"
 # JavaScript package manager
 brew "yarn"
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew "yq"
+# Fast file synchronization and network forwarding for remote development
+brew "mutagen-io/mutagen/mutagen"
+# CLI to use for SAML login within Rippling
+brew "rippling/rippling/rippling-saml-login"
 # GPU-accelerated terminal emulator
 cask "alacritty"
+# App to build and share containerized applications and microservices
+cask "docker"
+# Plugin for AWS CLI to start and end sessions that connect to managed instances
+cask "session-manager-plugin"
