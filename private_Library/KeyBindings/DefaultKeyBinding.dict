@@ -1,0 +1,4 @@
+{
+    /* disable beep when using ctrl+/ in terminals */
+    "^/" = "noop:";
+}

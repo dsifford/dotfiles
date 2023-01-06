@@ -1,2 +1,8 @@
 .data/
 .editorconfig
+
+{{- if ne .chezmoi.os "darwin" -}}
+
+Library/
+
+{{- end }}
