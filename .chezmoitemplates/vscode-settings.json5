@@ -51,7 +51,6 @@
 	"scss.validate": false,
 	"stylelint.enable": true,
 	"telemetry.enableTelemetry": false,
-	"typescript.suggest.autoImports": false,
 	"typescript.tsdk": "/home/dsifford/.local/share/npm/lib/node_modules/typescript/lib",
 	"typescript.tsserver.log": "off",
 	"vim.easymotionMarkerBackgroundColor": "#ff5555",
