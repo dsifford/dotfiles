@@ -3,6 +3,7 @@ Gruntfuggly.todo-tree
 VisualStudioExptTeam.intellicode-api-usage-examples
 VisualStudioExptTeam.vscodeintellicode
 bierner.markdown-preview-github-styles
+dbaeumer.vscode-eslint
 dracula-theme.theme-dracula
 eamodio.gitlens
 esbenp.prettier-vscode
