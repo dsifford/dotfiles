@@ -41,6 +41,7 @@
     "scss.validate": false,
     "telemetry.telemetryLevel": "off",
     "typescript.tsserver.log": "off",
+    "editor.bracketPairColorization.enabled": false,
     "vim.easymotion": true,
     "vim.enableNeovim": true,
     "vim.foldfix": true,
