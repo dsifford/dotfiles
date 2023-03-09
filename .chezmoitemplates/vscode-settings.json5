@@ -121,14 +121,14 @@
         "type": "tag"
     },
     "todo-tree.filtering.excludeGlobs": ["**/node_modules/**"],
-    "todo-tree.regex.regex": "(($TAGS)|^\\s*- \\[ \\])",
     "todo-tree.tree.showBadges": false,
-    "todo-tree.general.statusBar": "tags",
-    "todo-tree.general.tags": ["FIXME:", "TODO:"],
     "todo-tree.tree.tagsOnly": true,
     "editor.semanticHighlighting.enabled": true,
     "window.dialogStyle": "custom",
     "editor.suggestSelection": "first",
     "python.languageServer": "Pylance",
-    "workbench.colorTheme": "Dracula"
+    "workbench.colorTheme": "Dracula",
+    "gitlens.showWelcomeOnInstall": false,
+    "gitlens.codeLens.enabled": false,
+    "todo-tree.general.tags": ["HACK", "FIXME", "TODO"]
 }

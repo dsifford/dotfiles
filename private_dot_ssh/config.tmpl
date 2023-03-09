@@ -27,4 +27,13 @@ Host gitlab.com
     HostName gitlab.com
     User git
 
+{{- if eq .chezmoi.hostname "rippling-macbook" }}
+
+Host cloud-dev
+    ProxyCommand sh -c "/Users/dsifford/repos/_orgs/rippling/rippling-main/.launch-scripts/connect_to_cde.sh"
+    StrictHostKeyChecking no
+    User admin
+
+{{- end }}
+
 # vim: ft=sshconfig

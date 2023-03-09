@@ -1,6 +1,4 @@
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
 tap "mutagen-io/mutagen"
 tap "rippling/rippling", "git@github.com:rippling/homebrew-rippling"
 # Archival front-end
