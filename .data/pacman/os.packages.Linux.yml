@@ -14,6 +14,7 @@
     - asciinema
     - atool
     - base
+    - base-devel
     - bash-completion
     - bat
     - bitwarden-cli
@@ -112,6 +113,7 @@
     - zip
     aur:
     - autokey-gtk
+    - cyberdropdownloader
     - dropbox
     - hadolint-bin
     - pandoc-bin

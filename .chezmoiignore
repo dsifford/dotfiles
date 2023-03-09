@@ -3,6 +3,9 @@
 
 {{- if ne .chezmoi.os "darwin" -}}
 
+Library
 Library/
+Library/*
+Library/**/*
 
 {{- end }}
