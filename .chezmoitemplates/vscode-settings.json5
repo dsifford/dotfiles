@@ -130,5 +130,6 @@
     "workbench.colorTheme": "Dracula",
     "gitlens.showWelcomeOnInstall": false,
     "gitlens.codeLens.enabled": false,
-    "todo-tree.general.tags": ["HACK", "FIXME", "TODO"]
+    "todo-tree.general.tags": ["HACK", "FIXME", "TODO"],
+    "explorer.compactFolders": false
 }
