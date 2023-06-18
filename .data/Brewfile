@@ -1,6 +1,9 @@
+tap "adoptopenjdk/openjdk"
 tap "homebrew/bundle"
 tap "mutagen-io/mutagen"
 tap "rippling/rippling", "git@github.com:rippling/homebrew-rippling"
+# Download with resuming and segmented downloading
+brew "aria2"
 # Archival front-end
 brew "atool"
 # Official Amazon AWS command-line interface
@@ -13,8 +16,12 @@ brew "bash-completion@2"
 brew "bat"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
+# Dependency manager for Cocoa projects
+brew "cocoapods"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Easiest way to build and release mobile apps
+brew "fastlane"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Collection of GNU find, xargs, and locate
@@ -31,8 +38,6 @@ brew "git"
 brew "git-delta"
 # Command-line option parsing utility
 brew "gnu-getopt"
-# GNU implementation of the famous stream editor
-brew "gnu-sed"
 # GNU version of the tar archiving utility
 brew "gnu-tar"
 # GNU implementation of which utility
@@ -45,8 +50,6 @@ brew "jq"
 brew "keychain"
 # Pager program similar to more
 brew "less"
-# Node version management
-brew "n"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Execute binaries from Python packages in isolated environments
@@ -57,6 +60,8 @@ brew "pyenv"
 brew "pyenv-virtualenv"
 # File browser
 brew "ranger"
+# Ruby version manager
+brew "rbenv"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Static analysis and lint tool, for (ba)sh scripts
@@ -67,6 +72,10 @@ brew "shfmt"
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Watch files and take action when they change
+brew "watchman"
+# Best command-line tool to install and switch between multiple versions of Xcode
+brew "xcodes"
 # JavaScript package manager
 brew "yarn"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
@@ -75,6 +84,10 @@ brew "yq"
 brew "mutagen-io/mutagen/mutagen"
 # CLI to use for SAML login within Rippling
 brew "rippling/rippling/rippling-saml-login"
+# AdoptOpenJDK OpenJDK (Java) Development Kit
+cask "adoptopenjdk11"
+# AdoptOpenJDK OpenJDK (Java) Development Kit
+cask "adoptopenjdk8"
 # GPU-accelerated terminal emulator
 cask "alacritty"
 # App to build and share containerized applications and microservices

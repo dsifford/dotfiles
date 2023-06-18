@@ -18,7 +18,6 @@
     },
     "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
     "emmet.showSuggestionsAsSnippets": true,
-    "explorer.decorations.badges": true,
     "extensions.autoUpdate": false,
     "files.exclude": {
         "**/*.pyo": true,
@@ -131,5 +130,14 @@
     "gitlens.showWelcomeOnInstall": false,
     "gitlens.codeLens.enabled": false,
     "todo-tree.general.tags": ["HACK", "FIXME", "TODO"],
-    "explorer.compactFolders": false
+    "explorer.compactFolders": false,
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "editor.linkedEditing": true,
+    "workbench.list.horizontalScrolling": true
 }
