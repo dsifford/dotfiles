@@ -1,5 +1,5 @@
 
-# General: {{{
+# General:
 
 unbind -a
 
@@ -22,8 +22,7 @@ setw -g mode-keys vi
 set  -g base-index      1
 setw -g pane-base-index 1
 
-#}}}
-# Layout / Colors: {{{
+# Layout / Colors:
 
 set -g status-style             bg='#21222C'       # Status bar background
 set -g clock-mode-colour        cyan               # Clock mode color
@@ -49,8 +48,7 @@ set -g window-status-current-format '#[fg=green,bold]#I.#[fg=white,bold] #W#[fg=
 # Other tabs
 set -g window-status-format         '#[fg=brightblack]#I. #W '
 
-#}}}
-# Keybindings: {{{
+# Keybindings:
 
 bind C-a send-prefix
 
@@ -61,11 +59,21 @@ bind r source "$XDG_CONFIG_HOME"/tmux/tmux.conf \; \
 # Global (root-level) bindings
 bind -n M-Enter  resize-pane -Z
 
+
+{{- if ne .chezmoi.os "darwin" }}
+
 # Cooperate with Vim buffers
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+        | grep -iqE '^[^TXZ ]+ n?vim$'"
+
+# Switch pane with Alt-(h,j,k,l) (Vim-aware)
 bind -n M-h if "$is_vim" "send M-h"  "select-pane -L"
 bind -n M-j if "$is_vim" "send M-j"  "select-pane -D"
 bind -n M-k if "$is_vim" "send M-k"  "select-pane -U"
 bind -n M-l if "$is_vim" "send M-l"  "select-pane -R"
+
+{{- end }}
+
 bind -T copy-mode-vi M-h select-pane -L
 bind -T copy-mode-vi M-j select-pane -D
 bind -T copy-mode-vi M-k select-pane -U
@@ -122,10 +130,6 @@ bind x      confirm-before -p "kill-pane #P? (y/n)" kill-pane     # Kill active 
 bind _      split-window -v -c "#{pane_current_path}"             # Split window vertically (top and bottom)
 bind |      split-window -h -c "#{pane_current_path}"             # Split window horizontally (left and right)
 
-# Switch pane with Alt-(h,j,k,l) (Vim-aware)
-is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
-        | grep -iqE '^[^TXZ ]+ n?vim$'"
-
 # vi-style copy/paste
 bind -T copy-mode-vi v send -X begin-selection
 
@@ -140,30 +144,31 @@ bind -n WheelDownPane    if -F -t = "#{alternate_on}" \
 bind -n MouseDown1Status select-window -t=  # Select window with left click
 bind -n MouseDown2Status kill-window -t=    # Kill window with middle click
 
-#}}}
-# Machine Specific: {{{
+# Machine Specific:
 
-%if #{==:#{host_short},archlinux}
-    bind -T copy-mode-vi y send -X copy-pipe-and-cancel "xclip -i -selection clipboard"
-    set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
-%else
-    bind -T copy-mode-vi y send -X copy-pipe-and-cancel "pbcopy"
-    set -as terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
-%endif
+{{- if ne .chezmoi.os "darwin" }}
 
-#}}}
-# Hooks {{{
+bind -T copy-mode-vi y send -X copy-pipe-and-cancel "xclip -i -selection clipboard"
+set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
+
+{{- else }}
+
+bind -T copy-mode-vi y send -X copy-pipe-and-cancel "pbcopy"
+set -as terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
+
+{{- end }}
+
+# Hooks
 
 # Prune temp files
 set-hook -g session-closed "run $XDG_CONFIG_HOME/tmux/hooks/session-closed"
 
-# }}}
-# Plugins: {{{
+# Plugins:
 
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'Morantron/tmux-fingers'
 
-# tmux-fingers {{{2
+# tmux-fingers
 
 set -g @fingers-key f
 set -g @fingers-hint-format '#[fg=cyan,bold][#[fg=red,bold]%s#[fg=cyan,bold]]'
@@ -174,13 +179,11 @@ set -g @fingers-highlight-format-nocompact '#[fg=black,bold,dim,bg=yellow]%s'
 set -g @fingers-pattern-0 '(([0-9]+[a-zA-Z]+|[a-zA-Z]+[0-9]+)[a-zA-Z0-9]+){2,}' # Docker image IDs
 set -g @fingers-pattern-1 'rustc --explain [A-Z0-9]+'                           # rust error explanations
 
-%if #{==:#{host_short},archlinux}
-    set -g @fingers-copy-command 'xclip -selection clipboard'
-%else
-    set -g @fingers-copy-command 'pbcopy'
-%endif
-
-# }}}2
+{{- if ne .chezmoi.os "darwin" }}
+set -g @fingers-copy-command 'xclip -selection clipboard'
+{{- else }}
+set -g @fingers-copy-command 'pbcopy'
+{{- end }}
 
 # Initialize tpm
 setenv -g TMUX_PLUGIN_MANAGER_PATH "$XDG_DATA_HOME"/tmux/plugins
@@ -189,6 +192,4 @@ if "test ! -d $TMUX_PLUGIN_MANAGER_PATH" \
 
 run "$XDG_DATA_HOME"/tmux/plugins/tpm/tpm
 
-#}}}
-
-# vim: set fdm=marker fdl=0:
+# vim: set ft=conf:
