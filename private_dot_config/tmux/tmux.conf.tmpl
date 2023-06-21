@@ -163,33 +163,4 @@ set -as terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
 # Prune temp files
 set-hook -g session-closed "run $XDG_CONFIG_HOME/tmux/hooks/session-closed"
 
-# Plugins:
-
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'Morantron/tmux-fingers'
-
-# tmux-fingers
-
-set -g @fingers-key f
-set -g @fingers-hint-format '#[fg=cyan,bold][#[fg=red,bold]%s#[fg=cyan,bold]]'
-set -g @fingers-hint-format-nocompact '#[fg=cyan,bold][#[fg=red,bold]%s#[fg=cyan,bold]]'
-set -g @fingers-highlight-format '#[fg=black,bold,dim,bg=yellow]%s'
-set -g @fingers-highlight-format-nocompact '#[fg=black,bold,dim,bg=yellow]%s'
-
-set -g @fingers-pattern-0 '(([0-9]+[a-zA-Z]+|[a-zA-Z]+[0-9]+)[a-zA-Z0-9]+){2,}' # Docker image IDs
-set -g @fingers-pattern-1 'rustc --explain [A-Z0-9]+'                           # rust error explanations
-
-{{- if ne .chezmoi.os "darwin" }}
-set -g @fingers-copy-command 'xclip -selection clipboard'
-{{- else }}
-set -g @fingers-copy-command 'pbcopy'
-{{- end }}
-
-# Initialize tpm
-setenv -g TMUX_PLUGIN_MANAGER_PATH "$XDG_DATA_HOME"/tmux/plugins
-if "test ! -d $TMUX_PLUGIN_MANAGER_PATH" \
-   "run 'mkdir -p $TMUX_PLUGIN_MANAGER_PATH && git clone https://github.com/tmux-plugins/tpm $TMUX_PLUGIN_MANAGER_PATH/tpm && $TMUX_PLUGIN_MANAGER_PATH/tpm/bin/install_plugins'"
-
-run "$XDG_DATA_HOME"/tmux/plugins/tpm/tpm
-
 # vim: set ft=conf:
