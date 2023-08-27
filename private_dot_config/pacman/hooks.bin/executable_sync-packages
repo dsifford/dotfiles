@@ -22,7 +22,6 @@ YayObj = Dict[str, Dict[str, List[str]]]
 PACKAGES: Dict[str, FrozenSet[str]] = {
     # Package groups that are being synced.
     "groups": frozenset([
-        "base-devel",
         "xorg",
     ]),
     # List of packages to be included on desktop only.
