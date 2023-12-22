@@ -3,7 +3,6 @@
 #
 - yay:
     groups:
-    - base-devel
     - xorg
     official:
     - alacritty
@@ -107,23 +106,19 @@
     - xclip
     - xorg-xinit
     - yarn
-    - youtube-dl
     - zathura
     - zathura-pdf-poppler
     - zip
     aur:
     - autokey-gtk
-    - cyberdropdownloader
     - dropbox
     - hadolint-bin
     - pandoc-bin
     - phantomjs-bin
     - shellcheck-bin
     - slack-desktop
-    - spotify
     - ttf-monaco
     - visual-studio-code-bin
     - windscribe-cli
     - yay
-    - zeal-git
-    - zoom
+    - youtube-dl
