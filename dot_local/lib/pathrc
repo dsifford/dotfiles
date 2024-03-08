@@ -4,29 +4,40 @@
 #
 declare newpath
 declare -a path=(
-	~/.local/bin
-	"${XDG_DATA_HOME:-$HOME/.local/share}"/{cargo,go,npm,pyenv}/bin
-	/usr/local/opt/openssl/bin
+    ~/.local/bin
+    "${XDG_DATA_HOME:-$HOME/.local/share}"/{cargo,go,npm,pyenv}/bin
+    "$PYENV_ROOT"/shims
+    /usr/local/opt/openssl/bin
     /opt/homebrew/opt/*/libexec/gnubin
     /usr/local/opt/gnu-getopt/bin
-	/usr/local/{bin,sbin}
+    /usr/local/{bin,sbin}
     /opt/homebrew/bin
 )
 
-mapfile -t path < <(
-	cat \
-		<(printf '%s\n' "${path[@]}") \
-		<(echo "$PATH" | tr ':' '\n') \
-		<(getconf PATH | tr ':' '\n')
-)
+if ! command -v mapfile > /dev/null; then
+    # Fallback in the event scripts spawn shells using legacy bash
+    for new_path in "${path[@]}"; do
+        if [ -d "$new_path" ]; then
+            PATH="$new_path:$PATH"
+        fi
+    done
+else
+    mapfile -t path < <(
+        cat \
+            <(printf '%s\n' "${path[@]}") \
+            <(echo "$PATH" | tr ':' '\n') \
+            <(getconf PATH | tr ':' '\n')
+    )
 
-# Prune out non-existent paths
-while read -r; do
-	[ ! -d "$REPLY" ] && continue
-	newpath="${newpath:+$newpath:}$REPLY"
-done < <(awk '!x[$0]++' < <(printf '%s\n' "${path[@]}"))
+    # Prune out non-existent paths
+    while read -r; do
+        [ ! -d "$REPLY" ] && continue
+        newpath="${newpath:+$newpath:}$REPLY"
+    done < <(awk '!x[$0]++' < <(printf '%s\n' "${path[@]}"))
 
-PATH="$newpath"
+    PATH="$newpath"
+fi
+
 unset path newpath
 
 # vim: set ft=sh:

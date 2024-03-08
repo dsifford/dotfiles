@@ -70,6 +70,10 @@
             "commands": ["editor.action.formatDocument"]
         },
         {
+            "before": ["<leader>", "F"],
+            "commands": ["eslint.executeAutofix"]
+        },
+        {
             "before": ["<leader>", "z", "f"],
             "commands": ["editor.foldAllMarkerRegions"]
         },
@@ -95,7 +99,6 @@
     "vim.visualstar": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "window.zoomLevel": 0,
-    "workbench.activityBar.visible": true,
     "workbench.colorCustomizations": {
         "editorBracketMatch.background": "#FF79C680",
         "editorBracketMatch.border": "#ff00ff"
@@ -133,11 +136,14 @@
     "explorer.compactFolders": false,
     "editor.inlineSuggest.enabled": true,
     "github.copilot.enable": {
-        "*": false,
+        "*": true,
         "plaintext": false,
         "markdown": false,
         "scminput": false
     },
     "editor.linkedEditing": true,
-    "workbench.list.horizontalScrolling": true
+    "workbench.list.horizontalScrolling": true,
+    "editor.stickyScroll.enabled": true,
+    "editor.stickyScroll.maxLineCount": 10,
+    "git.allowNoVerifyCommit": true
 }

@@ -1,6 +1,7 @@
 tap "adoptopenjdk/openjdk"
 tap "homebrew/bundle"
 tap "mutagen-io/mutagen"
+tap "pantsbuild/tap"
 tap "rippling/rippling", "git@github.com:rippling/homebrew-rippling"
 # Download with resuming and segmented downloading
 brew "aria2"
@@ -92,5 +93,7 @@ cask "adoptopenjdk8"
 cask "alacritty"
 # App to build and share containerized applications and microservices
 cask "docker"
+# Fast, scalable, user-friendly build system for codebases of all sizes
+cask "pants"
 # Plugin for AWS CLI to start and end sessions that connect to managed instances
 cask "session-manager-plugin"
