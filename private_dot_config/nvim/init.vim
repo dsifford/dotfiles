@@ -187,7 +187,7 @@ let g:colorizer_colornames = 0
 " Deoplete: {{{2
 
 let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('smart_case', v:true)
+"call deoplete#custom#option('smart_case', v:true)
 
 inoremap <silent><expr> <Tab> vimrc#buffer#handle_tab()
 

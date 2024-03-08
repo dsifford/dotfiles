@@ -3,6 +3,9 @@
 # ~/.bash_profile
 #
 
+# Needed on mac for bash completion to load properly
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
 # Source pathrc
 [[ -f ~/.local/lib/pathrc ]] && . ~/.local/lib/pathrc
 
