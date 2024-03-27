@@ -1,5 +1,6 @@
 tap "adoptopenjdk/openjdk"
 tap "homebrew/bundle"
+tap "homebrew/cask-versions"
 tap "mutagen-io/mutagen"
 tap "pantsbuild/tap"
 tap "rippling/rippling", "git@github.com:rippling/homebrew-rippling"
@@ -61,6 +62,8 @@ brew "pyenv"
 brew "pyenv-virtualenv"
 # File browser
 brew "ranger"
+# Install various Ruby versions and implementations
+brew "ruby-build"
 # Ruby version manager
 brew "rbenv"
 # Search tool like grep and The Silver Searcher
@@ -85,15 +88,17 @@ brew "yq"
 brew "mutagen-io/mutagen/mutagen"
 # CLI to use for SAML login within Rippling
 brew "rippling/rippling/rippling-saml-login"
-# AdoptOpenJDK OpenJDK (Java) Development Kit
-cask "adoptopenjdk11"
-# AdoptOpenJDK OpenJDK (Java) Development Kit
+# Prebuilt OpenJDK binaries
 cask "adoptopenjdk8"
 # GPU-accelerated terminal emulator
 cask "alacritty"
-# App to build and share containerized applications and microservices
+# App to build and share containerised applications and microservices
 cask "docker"
 # Fast, scalable, user-friendly build system for codebases of all sizes
 cask "pants"
 # Plugin for AWS CLI to start and end sessions that connect to managed instances
 cask "session-manager-plugin"
+# OpenJDK distribution from Azul
+cask "zulu11"
+# OpenJDK distribution from Azul
+cask "zulu8"
