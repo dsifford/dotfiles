@@ -36,3 +36,9 @@ if ls --version &> /dev/null; then
 else
 	alias ls='ls -FHG11'
 fi
+
+{{- if eq .chezmoi.hostname "rippling-macbook" }}
+
+alias chrome-disable-web-security='open -na Google\ Chrome --args --user-data-dir=/tmp/temporary-chrome-profile-dir --disable-web-security'
+
+{{- end }}

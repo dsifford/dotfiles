@@ -1,3 +1,6 @@
+" Chezmoi
+Plug 'alker0/chezmoi.vim'
+
 " Git:
 Plug 'tpope/vim-git'
 
