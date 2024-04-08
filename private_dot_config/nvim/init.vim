@@ -184,16 +184,6 @@ let g:colorizer_auto_filetype='css,scss'
 let g:colorizer_colornames = 0
 
 " }}}2
-" Deoplete: {{{2
-
-let g:deoplete#enable_at_startup = 1
-"call deoplete#custom#option('smart_case', v:true)
-
-inoremap <silent><expr> <Tab> vimrc#buffer#handle_tab()
-
-inoremap <silent> <S-Tab> <C-p>
-
-" }}}2
 " EasyAlign: {{{2
 
 nmap ga <Plug>(EasyAlign)

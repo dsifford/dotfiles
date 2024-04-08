@@ -19,7 +19,6 @@ call plug#begin(stdpath('data') . '/plugged')
 " Essential:
 "
 Plug 'dense-analysis/ale'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mattn/emmet-vim'
 Plug 'tomtom/tcomment_vim'
