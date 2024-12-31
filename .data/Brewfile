@@ -20,8 +20,14 @@ brew "bat"
 brew "chezmoi"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima", args: ["HEAD"]
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Isolated development environments using Docker
+brew "docker-compose"
 # Easiest way to build and release mobile apps
 brew "fastlane"
 # Simple, fast and user-friendly alternative to find
@@ -52,10 +58,16 @@ brew "jq"
 brew "keychain"
 # Pager program similar to more
 brew "less"
+# Simple tool to make locally trusted development certificates
+brew "mkcert"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Libraries for security-enabled client and server applications
+brew "nss"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
 # Python version management
 brew "pyenv"
 # Pyenv plugin to manage virtualenv
@@ -68,6 +80,8 @@ brew "ruby-build"
 brew "rbenv"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# CLI to use for SAML login within Rippling
+brew "rippling-saml-login"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Autoformat shell script source code
@@ -86,19 +100,13 @@ brew "yarn"
 brew "yq"
 # Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen"
-# CLI to use for SAML login within Rippling
-brew "rippling/rippling/rippling-saml-login"
-# Prebuilt OpenJDK binaries
-cask "adoptopenjdk8"
 # GPU-accelerated terminal emulator
 cask "alacritty"
-# App to build and share containerised applications and microservices
-cask "docker"
 # Fast, scalable, user-friendly build system for codebases of all sizes
 cask "pants"
 # Plugin for AWS CLI to start and end sessions that connect to managed instances
 cask "session-manager-plugin"
 # OpenJDK distribution from Azul
-cask "zulu11"
+cask "zulu@11"
 # OpenJDK distribution from Azul
-cask "zulu8"
+cask "zulu@8"

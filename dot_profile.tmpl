@@ -137,6 +137,9 @@ export REMOTE_IP=dsifford-private.ripplingtest.com
 export REMOTE_PRIVATE_KEY_FILE="/Users/dsifford/.ssh/id_ed25519"
 export SKIP_CHECK_VPN=true
 
+# breaks the LDE
+unset DOCKER_CONFIG
+
 {{- end }}
 
 # vim: set ft=sh:

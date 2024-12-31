@@ -1,0 +1,14 @@
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Use the system clipboard
+set clipboard+=unnamedplus
+
+" See https://github.com/JetBrains/ideavim/blob/master/doc/ideajoin-examples.md
+set ideajoin
+
+set incsearch
+set ignorecase
+set smartcase
+

@@ -19,17 +19,25 @@ npmc() {
 		else
 			prod+=("${data[0]}@$version")
 		fi
-	done < <(npm --color=always outdated --long \
-		| fzf --ansi --header-lines 1 -m --nth 1)
+	done < <(npm --color=always outdated --long |
+		fzf --ansi --header-lines 1 -m --nth 1)
 
 	printf '%s\n' "${prod[@]}" | xargs --verbose --no-run-if-empty npm install
 	printf '%s\n' "${dev[@]}" | xargs --verbose --no-run-if-empty npm install -D
 }
 
 npmcg() {
-	npm --color=always -g outdated \
-		| fzf --ansi --header-lines 1 -m --nth 1 \
-		| awk '{ print $1 }' \
-		| xargs --verbose --no-run-if-empty -I % \
-			npm -g install %
+	npm --prefix="${XDG_DATA_HOME}"/npm --color=always -g outdated |
+		fzf --ansi --header-lines 1 -m --nth 1 |
+		awk '{ print $1 }' |
+		xargs --verbose --no-run-if-empty -I % \
+			npm -g --prefix="${XDG_DATA_HOME}"/npm install %
+}
+
+npmig() {
+	npm -g --prefix="${XDG_DATA_HOME}"/npm install "$@"
+}
+
+npmrmg() {
+	npm -g --prefix="${XDG_DATA_HOME}"/npm rm "$@"
 }

@@ -129,7 +129,6 @@
     "window.dialogStyle": "custom",
     "editor.suggestSelection": "first",
     "python.languageServer": "Pylance",
-    "workbench.colorTheme": "Dracula",
     "gitlens.showWelcomeOnInstall": false,
     "gitlens.codeLens.enabled": false,
     "todo-tree.general.tags": ["HACK", "FIXME", "TODO"],
@@ -145,5 +144,12 @@
     "workbench.list.horizontalScrolling": true,
     "editor.stickyScroll.enabled": true,
     "editor.stickyScroll.maxLineCount": 10,
-    "git.allowNoVerifyCommit": true
+    "git.allowNoVerifyCommit": true,
+    "github.copilot.editor.enableAutoCompletions": true,
+    "workbench.editor.customLabels.patterns": {
+        "**/index.{js,jsx,ts,tsx}": "${dirname}/${filename}.${extname}"
+    },
+    "workbench.colorTheme": "Dracula Theme",
+    "typescript.tsserver.nodePath": "node",
+    "typescript.tsserver.maxTsServerMemory": 6000
 }
