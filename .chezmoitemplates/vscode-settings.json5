@@ -151,5 +151,8 @@
     },
     "workbench.colorTheme": "Dracula Theme",
     "typescript.tsserver.nodePath": "node",
-    "typescript.tsserver.maxTsServerMemory": 6000
+    "typescript.tsserver.maxTsServerMemory": 6000,
+    "typescript.surveys.enabled": false,
+    "typescript.tsserver.enableRegionDiagnostics": false,
+    "typescript.preferences.importModuleSpecifier": "non-relative"
 }
