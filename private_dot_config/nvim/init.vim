@@ -28,7 +28,6 @@ set lazyredraw            " Improves perf under some conditions
 set nowrap                " Disable line wrapping
 set noshowmode            " Dont show mode in the command line -- using Airline for that
 set number                " Show line numbers
-set pastetoggle=<F2>      " Toggle paste mode with F2
 set scrolloff=1           " Minimum # of lines to keep above and below cursor
 set shada=                " Don't use a shada.
 set shiftround            " Round indents to nearest indent size when using < or >
