@@ -4,7 +4,7 @@ Host *
     IgnoreUnknown UseKeychain
     UseKeychain yes
 
-{{- if eq .chezmoi.fqdnHostname "archlinux.desktop" }}
+{{- if eq .chezmoi.os "linux" }}
 
 Host nas
     HostName 192.168.1.216
