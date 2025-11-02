@@ -29,6 +29,8 @@ Host gitlab.com
 
 {{- if eq .chezmoi.hostname "rippling-macbook" }}
 
+Include /Users/dsifford/.config/colima/ssh_config
+
 Host cloud-dev
     ProxyCommand sh -c "/Users/dsifford/.cde/connect_to_cde.sh"
     StrictHostKeyChecking no

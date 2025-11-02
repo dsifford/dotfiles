@@ -1,10 +1,7 @@
 tap "adoptopenjdk/openjdk"
 tap "common-fate/granted"
-tap "homebrew/bundle"
-tap "homebrew/cask-versions"
 tap "mutagen-io/mutagen"
 tap "pantsbuild/tap"
-tap "rippling/rippling", "git@github.com:rippling/homebrew-rippling"
 # Download with resuming and segmented downloading
 brew "aria2"
 # Archival front-end
@@ -87,8 +84,6 @@ brew "ruby-build"
 brew "rbenv"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# CLI to use for SAML login within Rippling
-brew "rippling-saml-login"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Autoformat shell script source code
@@ -98,7 +93,7 @@ brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Find and verify credentials
-brew "trufflehog", link: false
+brew "trufflehog"
 # Watch files and take action when they change
 brew "watchman"
 # Best command-line tool to install and switch between multiple versions of Xcode
@@ -111,8 +106,6 @@ brew "yq"
 brew "common-fate/granted/granted"
 # Fast file synchronization and network forwarding for remote development
 brew "mutagen-io/mutagen/mutagen@0.17"
-# GPU-accelerated terminal emulator
-cask "alacritty"
 # Terminal-based AI coding assistant
 cask "claude-code"
 # Fast, scalable, user-friendly build system for codebases of all sizes
