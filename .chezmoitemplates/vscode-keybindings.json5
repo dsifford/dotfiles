@@ -10,6 +10,11 @@
         "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
     },
     {
+        "key": "right",
+        "command": "editor.action.acceptCursorTabSuggestion",
+        "when": "suggestWidgetVisible && cpp.shouldAcceptTab && editorTextFocus"
+    },
+    {
         "key": "shift+tab",
         "command": "selectPrevSuggestion",
         "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"

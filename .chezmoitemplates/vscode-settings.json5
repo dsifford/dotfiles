@@ -151,12 +151,13 @@
     },
     "workbench.colorTheme": "Dracula Theme",
     "typescript.tsserver.nodePath": "node",
-    "typescript.tsserver.maxTsServerMemory": 6000,
+    "typescript.tsserver.maxTsServerMemory": 12288,
     "typescript.surveys.enabled": false,
     "typescript.tsserver.enableRegionDiagnostics": false,
     "typescript.preferences.importModuleSpecifier": "non-relative",
     "outline.collapseItems": "alwaysCollapse",
     "gitlens.telemetry.enabled": false,
     "git.blame.editorDecoration.enabled": true,
-    "github.copilot.chat.codesearch.enabled": true
+    "github.copilot.chat.codesearch.enabled": true,
+    "git.autofetch": true
 }

@@ -1,4 +1,5 @@
 tap "adoptopenjdk/openjdk"
+tap "common-fate/granted"
 tap "homebrew/bundle"
 tap "homebrew/cask-versions"
 tap "mutagen-io/mutagen"
@@ -28,6 +29,8 @@ brew "coreutils"
 brew "docker"
 # Isolated development environments using Docker
 brew "docker-compose"
+# Docker Credential Helper for Amazon ECR
+brew "docker-credential-helper-ecr"
 # Easiest way to build and release mobile apps
 brew "fastlane"
 # Simple, fast and user-friendly alternative to find
@@ -58,6 +61,8 @@ brew "jq"
 brew "keychain"
 # Pager program similar to more
 brew "less"
+# Postgres C API library
+brew "libpq"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -68,6 +73,8 @@ brew "nss"
 brew "pipx"
 # Package compiler and linker metadata toolkit
 brew "pkgconf"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
 # Python version management
 brew "pyenv"
 # Pyenv plugin to manage virtualenv
@@ -100,10 +107,14 @@ brew "xcodes"
 brew "yarn"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
+# The easiest way to access your cloud.
+brew "common-fate/granted/granted"
 # Fast file synchronization and network forwarding for remote development
-brew "mutagen-io/mutagen/mutagen"
+brew "mutagen-io/mutagen/mutagen@0.17"
 # GPU-accelerated terminal emulator
 cask "alacritty"
+# Terminal-based AI coding assistant
+cask "claude-code"
 # Fast, scalable, user-friendly build system for codebases of all sizes
 cask "pants"
 # Plugin for AWS CLI to start and end sessions that connect to managed instances

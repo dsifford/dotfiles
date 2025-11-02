@@ -131,7 +131,13 @@ export ELECTRON_TRASH=gio
 
 {{- if eq .chezmoi.hostname "rippling-macbook" }}
 
+export AWS_REGION=us-west-2
+export CDE_SLIM_INIT_ENABLED=true
+export CLAUDE_CODE_MAX_OUTPUT_TOKENS=4096
+export CLAUDE_CODE_USE_BEDROCK=1
+export CLAUDE_TIMEOUT=30000
 export DEVELOPER_NAME=dsifford
+export DISABLE_AUTOUPDATER=1
 export PANTS_LINT=true
 export REMOTE_IP=dsifford-private.ripplingtest.com
 export REMOTE_PRIVATE_KEY_FILE="/Users/dsifford/.ssh/id_ed25519"

@@ -12,6 +12,7 @@ declare -a path=(
     /usr/local/opt/gnu-getopt/bin
     /usr/local/{bin,sbin}
     /opt/homebrew/bin
+    /opt/homebrew/opt/libpq/bin
 )
 
 if ! command -v mapfile > /dev/null; then
