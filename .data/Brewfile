@@ -22,6 +22,8 @@ brew "cocoapods"
 brew "colima", args: ["HEAD"]
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Load/unload environment variables based on $PWD
+brew "direnv"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Isolated development environments using Docker
