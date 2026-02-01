@@ -13,6 +13,3 @@ let b:undo_ftplugin = vimrc#undo_ftplugin(
     \ 'setlocal foldlevel< foldmethod<',
     \ 'unlet b:ale_fixers b:ale_javascript_prettier_options'
     \)
-
-" Necessary for whatever reason to make foldlevel actually work
-call timer_start(100, { timer -> execute('normal zR') })

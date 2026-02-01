@@ -2,9 +2,6 @@ setlocal foldmarker={,}
 setlocal foldmethod=marker
 setlocal foldnestmax=3
 
-" Disable buggy css brace error highlighting
-hi! link cssBraceError None
-
 let b:ale_fixers = [
     \ 'prettier',
     \ 'stylelint',

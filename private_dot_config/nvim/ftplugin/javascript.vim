@@ -1,7 +1,5 @@
 setlocal omnifunc=
 
-let g:javascript_plugin_jsdoc = 1
-
 let b:ale_fixers = [
     \ 'prettier',
     \ 'eslint',
