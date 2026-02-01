@@ -62,9 +62,6 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
-" Custom foldtext
-set foldtext=vimrc#folds#foldtext()
-
 let g:mapleader      = "\<Space>"
 let g:maplocalleader = ','
 
@@ -291,7 +288,8 @@ augroup END
 " }}}2
 " Tree-Sitter: {{{2
 set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
+set foldexpr=v:lua.vim.treesitter.foldexpr()
+set foldtext=v:lua.vim.treesitter.foldtext()
 
 lua <<EOF
 require'nvim-treesitter.config'.setup {
@@ -302,9 +300,6 @@ require'nvim-treesitter.config'.setup {
   },
   auto_install = true,
   highlight = {
-    enable = true,
-  },
-  indent = {
     enable = true,
   },
 }
