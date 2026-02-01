@@ -111,7 +111,7 @@ brew "mutagen-io/mutagen/mutagen@0.17"
 # Terminal-based AI coding assistant
 cask "claude-code"
 # Fast, scalable, user-friendly build system for codebases of all sizes
-cask "pants"
+cask "pantsbuild/tap/pants"
 # Plugin for AWS CLI to start and end sessions that connect to managed instances
 cask "session-manager-plugin"
 # OpenJDK distribution from Azul
