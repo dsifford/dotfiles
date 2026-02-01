@@ -55,7 +55,6 @@ Plug 'airblade/vim-gitgutter'
 " Misc:
 "
 Plug 'tpope/vim-scriptease'
-Plug 'Konfekt/FastFold'
 Plug 'tpope/vim-fugitive'
 
 runtime plugins.langs.vimrc
