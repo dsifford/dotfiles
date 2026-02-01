@@ -19,7 +19,6 @@ call plug#begin(stdpath('data') . '/plugged')
 " Essential:
 "
 Plug 'dense-analysis/ale'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'mattn/emmet-vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-repeat'
@@ -28,7 +27,6 @@ Plug 'tpope/vim-surround'
 Plug 'liuchengxu/vim-which-key'
 Plug 'kana/vim-textobj-user'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/playground'
 
 Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
@@ -52,12 +50,10 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'chrisbra/Colorizer'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
-Plug 'machakann/vim-highlightedyank'
 
 "
 " Misc:
 "
-Plug 'tweekmonster/startuptime.vim'
 Plug 'tpope/vim-scriptease'
 Plug 'Konfekt/FastFold'
 Plug 'tpope/vim-fugitive'

@@ -6,14 +6,12 @@ command! -range TSDocify <line1>,<line2>call vimrc#ftplugin#typescript#tsdocify(
 
 let b:ale_fixers = [
     \ 'prettier',
-    \ 'tslint',
     \ 'eslint',
     \ ]
 
 let b:ale_linters = [
     \ 'tsserver',
     \ 'eslint',
-    \ 'tslint',
     \ ]
 
 let b:ale_quick_fixer = 'prettier'

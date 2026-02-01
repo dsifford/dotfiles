@@ -4,7 +4,7 @@ let b:ale_fixers = [
 
 let b:ale_linters = [
     \ 'cargo',
-    \ 'rls',
+    \ 'rust_analyzer',
     \ ]
 
 let b:ale_rust_cargo_use_clippy = 1

@@ -9,10 +9,6 @@ augroup END
 
 runtime plugins.vimrc
 
-if has('mac')
-  runtime mac.vimrc
-endif
-
 " }}}
 " Options: {{{
 
@@ -20,11 +16,9 @@ set autowrite             " Automatically save before commands like :next and :m
 set clipboard=unnamedplus " Use system clipboard
 set cursorline            " Highlight the cursor line
 set foldlevelstart=99     " Default to no folds closed on new buffers
-set foldmethod=syntax     " Fold using syntax by default
 set hidden                " Use hidden buffers liberally
 set history=500           " Truncate history at 200 lines
 set ignorecase            " Required for proper smartcase functionality
-set lazyredraw            " Improves perf under some conditions
 set nowrap                " Disable line wrapping
 set noshowmode            " Dont show mode in the command line -- using Airline for that
 set number                " Show line numbers
@@ -78,9 +72,7 @@ let g:tex_flavor = 'latex' " Never use plaintex flavor
 
 let g:which_key_map = {}   " Mapping dictionary for vim-which-key
 
-if has('nvim')
-  set inccommand=split
-endif
+set inccommand=split
 
 colorscheme dracula
 hi clear CursorLine " disables line highlight, but keeps `CursorLineNr`
@@ -302,15 +294,18 @@ set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 
 lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all",
+require'nvim-treesitter.config'.setup {
+  ensure_installed = {
+    "bash", "css", "dockerfile", "html", "javascript", "json",
+    "jsonc", "lua", "markdown", "python", "rust", "scss", "terraform",
+    "tsx", "typescript", "vim", "vimdoc", "yaml",
+  },
+  auto_install = true,
   highlight = {
     enable = true,
   },
-  playground = {
+  indent = {
     enable = true,
-    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-    persist_queries = false, -- Whether the query persists across vim sessions
   },
 }
 EOF
@@ -426,6 +421,9 @@ nnoremap <Leader>/ :Rg<Space>
 " Autocommands: {{{
 
 augroup dsifford
+  " Highlight yanked text briefly (built-in replacement for vim-highlightedyank)
+  autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 150 })
+
   " Check to see if the current buffer has changes from another program.
   " If so, reload the changes.
   autocmd BufEnter,FocusGained * :checktime
