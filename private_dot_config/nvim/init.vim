@@ -17,7 +17,7 @@ set clipboard=unnamedplus " Use system clipboard
 set cursorline            " Highlight the cursor line
 set foldlevelstart=99     " Default to no folds closed on new buffers
 set hidden                " Use hidden buffers liberally
-set history=500           " Truncate history at 200 lines
+set history=500           " Truncate history at 500 lines
 set ignorecase            " Required for proper smartcase functionality
 set nowrap                " Disable line wrapping
 set noshowmode            " Dont show mode in the command line -- using Airline for that
@@ -204,6 +204,7 @@ let g:fzf_action = {
 \  'ctrl-v': 'vsplit',
 \}
 
+" :Rg/:TODOs completion requires external 'get_completions rg' in PATH.
 func! s:CompleteRg(arg_lead, line, pos)
   let l:args = join(split(a:line)[1:])
   return systemlist('get_completions rg ' . l:args)
@@ -229,10 +230,10 @@ command! -complete=customlist,s:CompleteRg -nargs=* TODOs
   \     1
   \ )
 
-" List files relative to pwd
+" List files relative to pwd (requires 'fd' in PATH)
 nnoremap <C-p> <Cmd>call fzf#run(fzf#wrap({ 'source': 'fd --hidden --type file --exclude ".git/"', 'options': '-m' }))<CR>
 
-" List files relative to directory of current file
+" List files relative to directory of current file (requires 'fd' in PATH)
 nnoremap <M-p> <Cmd>call fzf#run(fzf#wrap({ 'source': 'fd . --hidden --type file --exclude ".git/" ' . expand('%:h'), 'options': '-m' }))<CR>
 
 " }}}2

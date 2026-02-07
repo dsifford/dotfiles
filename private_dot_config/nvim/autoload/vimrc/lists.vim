@@ -20,14 +20,12 @@ func! vimrc#lists#smart_jump(dir)
             exec a:dir > 0 ? 'lnext' : 'lprev'
         catch
             exec a:dir > 0 ? 'lfirst' : 'llast'
-        catch
         endtry
     elseif s:is_open('quickfix')
         try
             exec a:dir > 0 ? 'cnext' : 'cprev'
         catch
             exec a:dir > 0 ? 'cfirst' : 'clast'
-        catch
         endtry
     endif
 endfunc

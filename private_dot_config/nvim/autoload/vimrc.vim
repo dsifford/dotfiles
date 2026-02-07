@@ -34,7 +34,7 @@ endfunc
 " Helper function for setting undo_ftplugin in ftplugin files.
 func! vimrc#undo_ftplugin(...)
   let l:undo = join(a:000, ' | ')
-  if exists('b:undo_ftplugin') && ! empty('b:undo_ftplugin')
+  if exists('b:undo_ftplugin') && !empty(get(b:, 'undo_ftplugin', ''))
     return b:undo_ftplugin . '| ' . l:undo
   endif
   return l:undo
