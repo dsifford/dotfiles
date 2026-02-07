@@ -21,7 +21,3 @@ let b:ale_javascript_prettier_options = vimrc#merge_ale_options('ale_javascript_
     \ '--trailing-comma=all',
     \])
 
-if expand('%:t:r') =~# '[-.]test$'
-    UltiSnipsAddFiletypes jest.typescript
-endif
-

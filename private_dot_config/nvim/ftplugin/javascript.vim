@@ -16,7 +16,3 @@ let b:undo_ftplugin = vimrc#undo_ftplugin(
     \ 'setlocal omnifunc<',
     \ 'unlet b:ale_fixers b:ale_linters'
     \)
-
-if expand('%:t:r') =~# '[-.]test$'
-    UltiSnipsAddFiletypes jest.javascript
-endif

@@ -306,14 +306,6 @@ require'nvim-treesitter.config'.setup {
 }
 EOF
 " }}}2
-" UltiSnips: {{{2
-
-let g:UltiSnipsEditSplit           = 'tabdo'
-let g:UltiSnipsExpandTrigger       = '<M-j>'
-let g:UltiSnipsJumpForwardTrigger  = '<M-n>'
-let g:UltiSnipsJumpBackwardTrigger = '<M-b>'
-
-" }}}2
 " Vim Textobject User: {{{2
 
 " Text object for block comments

@@ -31,9 +31,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
 
-Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
-
 "
 " General Enhancements:
 "
