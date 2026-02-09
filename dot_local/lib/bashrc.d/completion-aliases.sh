@@ -36,11 +36,6 @@
 		command -v __git_main &&
 		__git_complete g __git_main
 
-	command -v hub &&
-		__load_completion hub &&
-		command -v _git &&
-		complete -o bashdefault -o default -o nospace -F _git g
-
 	command -v terraform &&
 		complete -C "$(command -v terraform)" terraform
 

@@ -54,8 +54,6 @@ brew "gnu-tar"
 brew "gnu-which"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
-# Add GitHub support to git on the command-line
-brew "hub"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # User-friendly front-end to ssh-agent(1)
