@@ -110,6 +110,8 @@ brew "common-fate/granted/granted"
 brew "mutagen-io/mutagen/mutagen@0.17"
 # Terminal-based AI coding assistant
 cask "claude-code"
+# Replacement for Docker Desktop
+cask "orbstack"
 # Fast, scalable, user-friendly build system for codebases of all sizes
 cask "pantsbuild/tap/pants"
 # Plugin for AWS CLI to start and end sessions that connect to managed instances
