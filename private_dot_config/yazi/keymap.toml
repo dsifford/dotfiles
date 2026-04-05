@@ -1,0 +1,47 @@
+[[mgr.prepend_keymap]]
+on = ["g", "/"]
+run = "cd /"
+
+[[mgr.prepend_keymap]]
+on = ["g", "f"]
+run = "cd ~/repos/_forks"
+
+[[mgr.prepend_keymap]]
+on = ["g", "o"]
+run = "cd ~/repos/_orgs"
+
+[[mgr.prepend_keymap]]
+on = ["g", ".", "."]
+run = "cd ~/.local/share/chezmoi"
+
+[[mgr.prepend_keymap]]
+on = ["g", ".", "c"]
+run = "cd ~/.local/share/chezmoi/private_dot_config"
+
+[[mgr.prepend_keymap]]
+on = ["g", ".", "v"]
+run = "cd ~/.local/share/chezmoi/private_dot_config/nvim"
+
+[[mgr.prepend_keymap]]
+on = ["g", "x", "c"]
+run = 'cd "$XDG_CONFIG_HOME"'
+
+[[mgr.prepend_keymap]]
+on = ["g", "x", "d"]
+run = 'cd "$XDG_DATA_HOME"'
+
+[[mgr.prepend_keymap]]
+on = ["g", "r"]
+run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"'
+desc = "cd => git root"
+
+#
+# Disable presets below
+#
+[[mgr.prepend_keymap]]
+on = ["g", "c"]
+run = "noop"
+
+[[mgr.prepend_keymap]]
+on = ["g", "f"]
+run = "noop"

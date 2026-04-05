@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Small hack to ensure this script is only run once per day
+# {{ now | date "2006-01-02" }}
+
 if command -v brew > /dev/null; then
     brew bundle dump --describe --force --brews --taps --casks --file=~/.local/share/chezmoi/.data/Brewfile
 fi

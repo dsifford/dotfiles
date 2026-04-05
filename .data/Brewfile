@@ -78,8 +78,6 @@ brew "poppler"
 brew "pyenv"
 # Pyenv plugin to manage virtualenv
 brew "pyenv-virtualenv"
-# File browser
-brew "ranger"
 # Install various Ruby versions and implementations
 brew "ruby-build"
 # Ruby version manager
@@ -102,6 +100,8 @@ brew "watchman"
 brew "xcodes"
 # JavaScript package manager
 brew "yarn"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
 # The easiest way to access your cloud.

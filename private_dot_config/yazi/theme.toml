@@ -1,0 +1,29 @@
+[flavor]
+name = "dracula"
+
+[mgr]
+border_symbol = " "
+
+[indicator]
+preview = { underline = false, reversed = true }
+padding = { open = "▐", close = "▌" }
+
+[icon]
+globs = []
+dirs = []
+files = []
+exts = []
+conds = []
+
+[notify]
+icon_info  = "[i]"
+icon_warn  = "[!]"
+icon_error = "[x]"
+
+
+[status]
+sep_left = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+[which]
+separator = " : "

@@ -5,15 +5,14 @@ if command -v fzf > /dev/null; then
 	bind '"\C-p": "`__fzf_cd__`\n"'
 fi
 
-# <C-o> = opens Ranger and on exit, cd into the last directory that Ranger was in.
-if command -v ranger > /dev/null; then
+if command -v yazi > /dev/null; then
 	# fixes <C-o> on mac os
 	stty discard undef
-	ranger-cd() {
+	yazi-cd() {
 		declare exit_dir
-		exit_dir="$(mktemp -t ranger-cd.XXXXXX)"
-		ranger --choosedir="$exit_dir" "$(pwd)"
+		exit_dir="$(mktemp -t yazi-cd.XXXXXX)"
+		command yazi --cwd-file="$exit_dir" 
 		cd "$(cat "$exit_dir")" && rm "$exit_dir"
 	}
-	bind '"\C-o": "ranger-cd\n"'
+	bind '"\C-o": "yazi-cd\n"'
 fi
