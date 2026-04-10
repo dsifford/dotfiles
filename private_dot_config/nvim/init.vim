@@ -36,7 +36,7 @@ set virtualedit=block     " Allow cursor to be placed in virtual positions when 
 set wildoptions+=pum      " Display the completion matches using a popupmenu
 set winaltkeys=no         " Allows all ALT combinations to be mapped
 
-set completeopt =menu     " Use a popup menu to show the possible completions
+set completeopt=menu     " Use a popup menu to show the possible completions
 set completeopt+=menuone  " Use the popup menu also when there is only one match
 set completeopt+=noinsert " Do not insert any text for a match until the user selects a match from the menu
 set completeopt+=noselect " Do not select a match in the menu, force the user to select one from the menu
@@ -45,14 +45,14 @@ set formatoptions+=r      " DO insert the current comment leader after hitting <
 set formatoptions-=o      " DO NOT insert the current comment leader after hitting 'o' or 'O' in Normal mode.
 set formatoptions-=t      " DO NOT automatically wrap non-comment lines when textwidth is set.
 
-set listchars =tab:▸\ ,
+set listchars=tab:▸\
 set listchars+=eol:¬
 set listchars+=space:·
 
 set shortmess+=c          " Don't give ins-completion-menu messages
 set shortmess+=I          " Don't show the intro message when starting vim
 
-set wildignore =tags
+set wildignore=tags
 set wildignore+=*.o
 set wildignore+=*.py?
 
