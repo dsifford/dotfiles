@@ -16,7 +16,6 @@
       - base-devel
       - bash-completion
       - bat
-      - bitwarden-cli
       - blueman
       - bluez-utils
       - chezmoi
