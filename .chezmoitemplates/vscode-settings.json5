@@ -14,7 +14,7 @@
     "emmet.includeLanguages": {
         "php": "html",
         "typescript": "javascriptreact",
-        "typescriptreact": "javascriptreact"
+        "typescriptreact": "javascriptreact",
     },
     "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
     "emmet.showSuggestionsAsSnippets": true,
@@ -27,7 +27,7 @@
         "**/.svn": true,
         "**/__pycache__": true,
         "**/CVS": true,
-        "**/node_modules": true
+        "**/node_modules": true,
     },
     "keyboard.dispatch": "keyCode",
     "merge-conflict.autoNavigateNextConflict.enabled": true,
@@ -51,48 +51,48 @@
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [";"],
-            "after": [":"]
+            "after": [":"],
         },
         {
             "before": [":"],
-            "commands": ["workbench.action.showCommands"]
+            "commands": ["workbench.action.showCommands"],
         },
         {
             "before": ["K"],
-            "commands": ["editor.action.showHover"]
+            "commands": ["editor.action.showHover"],
         },
         {
             "before": ["g", "r"],
-            "commands": ["references-view.find"]
+            "commands": ["references-view.find"],
         },
         {
             "before": ["<leader>", "f"],
-            "commands": ["editor.action.formatDocument"]
+            "commands": ["editor.action.formatDocument"],
         },
         {
             "before": ["<leader>", "F"],
-            "commands": ["eslint.executeAutofix"]
+            "commands": ["eslint.executeAutofix"],
         },
         {
             "before": ["<leader>", "z", "f"],
-            "commands": ["editor.foldAllMarkerRegions"]
+            "commands": ["editor.foldAllMarkerRegions"],
         },
         {
             "before": ["<leader>", "b", "l"],
-            "commands": ["gitlens.toggleLineBlame"]
+            "commands": ["gitlens.toggleLineBlame"],
         },
         {
             "before": ["<leader>", "b", "f"],
-            "commands": ["gitlens.toggleFileBlame"]
+            "commands": ["gitlens.toggleFileBlame"],
         },
         {
             "before": ["]", "c"],
-            "commands": ["workbench.action.editor.nextChange"]
+            "commands": ["workbench.action.editor.nextChange"],
         },
         {
             "before": ["[", "c"],
-            "commands": ["workbench.action.editor.previousChange"]
-        }
+            "commands": ["workbench.action.editor.previousChange"],
+        },
     ],
     "vim.searchHighlightColor": "rgba(80, 250, 123, 0.6)",
     "vim.useSystemClipboard": true,
@@ -101,7 +101,7 @@
     "window.zoomLevel": 0,
     "workbench.colorCustomizations": {
         "editorBracketMatch.background": "#FF79C680",
-        "editorBracketMatch.border": "#ff00ff"
+        "editorBracketMatch.border": "#ff00ff",
     },
     "workbench.sideBar.location": "left",
     "workbench.startupEditor": "newUntitledFile",
@@ -112,15 +112,15 @@
             "background": "#ff5555",
             "foreground": "#f8f8f2",
             "icon": "alert",
-            "iconColour": "#ff5555"
-        }
+            "iconColour": "#ff5555",
+        },
     },
     "todo-tree.highlights.defaultHighlight": {
         "background": "#8be9fd",
         "foreground": "#282a36",
         "icon": "check",
         "iconColour": "#8be9fd",
-        "type": "tag"
+        "type": "tag",
     },
     "todo-tree.filtering.excludeGlobs": ["**/node_modules/**"],
     "todo-tree.tree.showBadges": false,
@@ -138,7 +138,7 @@
         "*": true,
         "plaintext": false,
         "markdown": false,
-        "scminput": false
+        "scminput": false,
     },
     "editor.linkedEditing": true,
     "workbench.list.horizontalScrolling": true,
@@ -147,7 +147,7 @@
     "git.allowNoVerifyCommit": true,
     "github.copilot.editor.enableAutoCompletions": true,
     "workbench.editor.customLabels.patterns": {
-        "**/index.{js,jsx,ts,tsx}": "${dirname}/${filename}.${extname}"
+        "**/index.{js,jsx,ts,tsx}": "${dirname}/${filename}.${extname}",
     },
     "workbench.colorTheme": "Dracula Theme",
     "typescript.tsserver.nodePath": "node",
@@ -159,5 +159,6 @@
     "gitlens.telemetry.enabled": false,
     "git.blame.editorDecoration.enabled": true,
     "github.copilot.chat.codesearch.enabled": true,
-    "git.autofetch": true
+    "git.autofetch": true,
+    "git.addAICoAuthor": "off",
 }

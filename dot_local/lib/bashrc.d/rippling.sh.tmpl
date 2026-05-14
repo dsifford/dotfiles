@@ -4,4 +4,8 @@ if command -v direnv > /dev/null; then
     eval "$(direnv hook bash)"
 fi
 
+if command -v ripples > /dev/null; then
+    eval "$(ripples completion bash)"
+fi
+
 {{- end }}

@@ -20,10 +20,10 @@ icon_info  = "[i]"
 icon_warn  = "[!]"
 icon_error = "[x]"
 
-
 [status]
 sep_left = { open = "", close = "" }
 sep_right = { open = "", close = "" }
 
 [which]
 separator = " : "
+
