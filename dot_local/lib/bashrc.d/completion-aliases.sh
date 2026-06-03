@@ -16,7 +16,6 @@
 
 	# Add completion aliases where needed
 	command -v docker &&
-		__load_completion docker &&
 		command -v _docker &&
 		complete -F _docker d
 

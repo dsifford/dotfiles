@@ -1,7 +1,6 @@
 tap "adoptopenjdk/openjdk"
 tap "common-fate/granted"
 tap "mutagen-io/mutagen"
-tap "pantsbuild/tap"
 # Download with resuming and segmented downloading
 brew "aria2"
 # Archival front-end
@@ -108,10 +107,10 @@ brew "common-fate/granted/granted"
 brew "mutagen-io/mutagen/mutagen@0.17"
 # Terminal-based AI coding assistant
 cask "claude-code"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
 # Replacement for Docker Desktop
 cask "orbstack"
-# Fast, scalable, user-friendly build system for codebases of all sizes
-cask "pantsbuild/tap/pants"
 # Plugin for AWS CLI to start and end sessions that connect to managed instances
 cask "session-manager-plugin"
 # OpenJDK distribution from Azul

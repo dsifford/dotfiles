@@ -107,6 +107,10 @@ if command -v pyenv > /dev/null; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
+if command -v docker > /dev/null; then
+    source <(docker completion bash)
+fi
+
 {{- if eq .chezmoi.os "darwin" }}
 
 unset MANPATH
