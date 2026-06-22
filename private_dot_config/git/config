@@ -14,11 +14,6 @@
     s    = status
     undo = reset HEAD~
 
-[core]
-    editor = nvim
-    autocrlf = input
-    pager = delta
-
 [color]
     branch = always
     status = always
@@ -26,6 +21,11 @@
 [color "status"]
     added = green
     changed = blue
+
+[core]
+    editor = nvim
+    autocrlf = input
+    pager = delta
 
 [credential]
     helper = store
@@ -42,6 +42,9 @@
 
 [fetch]
     prune = true
+
+[init]
+	defaultBranch = main
 
 [interactive]
     diffFilter = delta --color-only
@@ -79,9 +82,9 @@
     showUntrackedFiles = all
     showStash = true
 
-[user]
-    email = dereksifford@gmail.com
-    name = Derek Sifford
+[url "ssh://git@bitbucket.org"]
+    insteadOf = https://bitbucket.org
+    insteadOf = http://bitbucket.org
 
 [url "ssh://git@github.com"]
     insteadOf = https://github.com
@@ -91,11 +94,8 @@
     insteadOf = https://gitlab.com
     insteadOf = http://gitlab.com
 
-[url "ssh://git@bitbucket.org"]
-    insteadOf = https://bitbucket.org
-    insteadOf = http://bitbucket.org
-
-[init]
-	defaultBranch = main
+[user]
+    email = dereksifford@gmail.com
+    name = Derek Sifford
 
 # vim: set ft=gitconfig:
