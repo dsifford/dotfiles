@@ -94,8 +94,18 @@
     insteadOf = https://gitlab.com
     insteadOf = http://gitlab.com
 
+{{- if eq .machine "rippling-macbook" }}
+
+[user]
+    email = dsifford@rippling.com
+    name = Derek Sifford
+
+{{- else }}
+
 [user]
     email = dereksifford@gmail.com
     name = Derek Sifford
+
+{{- end }}
 
 # vim: set ft=gitconfig:
