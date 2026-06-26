@@ -35,7 +35,6 @@
       - firefox-developer-edition
       - flameshot
       - fzf
-      - gdb
       - git
       - git-delta
       - github-cli
@@ -80,7 +79,6 @@
       - python-i3ipc
       - python-jedi
       - python-pip
-      - python-pipx
       - python-pynvim
       - redshift
       - reflector
