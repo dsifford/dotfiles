@@ -4,6 +4,6 @@
 # {{ now | date "2006-01-02" }}
 
 if command -v brew > /dev/null; then
-    brew bundle dump --force --brews --taps --casks --file="$(chezmoi source-path)"/.data/Brewfile
+    brew bundle dump --force --brews --taps --casks --file=~/.local/share/chezmoi/.data/Brewfile
 fi
 
