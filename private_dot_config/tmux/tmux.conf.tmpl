@@ -5,15 +5,17 @@ unbind -a
 
 set -g  prefix C-a
 
-set -g  default-terminal   'alacritty'
-set -g  escape-time        0
-set -g  focus-events       on
-set -g  history-limit      25000
-set -g  renumber-windows   on
-set -g  status-interval    1
-set -g  status-justify     left
-set -g  status-position    bottom
-set -ga terminal-overrides ',*:Tc'
+set -g  default-terminal     'alacritty'
+set -g  escape-time          0
+set -g  focus-events         on
+set -g  history-limit        25000
+set -g  renumber-windows     on
+set -g  status-interval      1
+set -g  status-justify       left
+set -g  status-position      bottom
+set -ga terminal-overrides   ',*:Tc'
+set -g  extended-keys        on
+set -g  extended-keys-format csi-u
 
 # vi-style controls for copy mode
 setw -g mode-keys vi
