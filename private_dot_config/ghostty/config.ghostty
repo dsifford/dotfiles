@@ -1,0 +1,7 @@
+font-family = Monaco
+font-size = 24
+theme = Dracula
+quit-after-last-window-closed = true
+macos-titlebar-style = tabs
+
+# vim: set ft=confini:

@@ -108,6 +108,8 @@ brew "anomalyco/tap/opencode", trusted: true
 cask "claude-code"
 # OpenAI's coding agent that runs in your terminal
 cask "codex"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
 # Replacement for Docker Desktop
 cask "orbstack"
 # Plugin for AWS CLI to start and end sessions that connect to managed instances
