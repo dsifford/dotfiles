@@ -1,0 +1,14 @@
+{
+  "packages": [
+    "git:github.com/Rippling/pi-dev-managed-settings",
+    "npm:@plannotator/pi-extension",
+    "npm:@tintinweb/pi-subagents",
+    "npm:pi-mcp-adapter",
+    "npm:pi-web-access"
+  ],
+  "lastChangelogVersion": "0.83.0",
+  "theme": "dark",
+  "defaultProvider": "llm-gateway-openai",
+  "defaultModel": "gpt-5.3-codex",
+  "enableInstallTelemetry": false
+}
