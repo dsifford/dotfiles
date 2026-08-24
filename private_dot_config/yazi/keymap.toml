@@ -24,11 +24,13 @@ run = "cd ~/.local/share/chezmoi/private_dot_config/nvim"
 
 [[mgr.prepend_keymap]]
 on = ["g", "x", "c"]
-run = 'cd "$XDG_CONFIG_HOME"'
+run = 'shell -- ya emit cd "$XDG_CONFIG_HOME"'
+desc = "cd $XDG_CONFIG_HOME"
 
 [[mgr.prepend_keymap]]
 on = ["g", "x", "d"]
-run = 'cd "$XDG_DATA_HOME"'
+run = 'shell -- ya emit cd "$XDG_DATA_HOME"'
+desc = "cd $XDG_DATA_HOME"
 
 [[mgr.prepend_keymap]]
 on = ["g", "r"]

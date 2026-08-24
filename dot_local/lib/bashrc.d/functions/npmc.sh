@@ -3,14 +3,14 @@
 # Better "npm-check" command utilizing fzf without any other dependencies.
 #
 
-command -v fzf > /dev/null || return
-command -v npm > /dev/null || return
+command -v fzf >/dev/null || return
+command -v npm >/dev/null || return
 
 npmc() {
 	declare line version
 	declare -a prod dev data
 	while read -r line; do
-		IFS=' ' read -r -a data <<< "$line"
+		IFS=' ' read -r -a data <<<"$line"
 		version=$(
 			sort -Vr < <(printf '%s\n' "${data[1]}" "${data[2]}" "${data[3]}") | head -n 1
 		)
@@ -27,7 +27,11 @@ npmc() {
 }
 
 npmcg() {
-	npm --prefix="${XDG_DATA_HOME}"/npm --color=always -g outdated |
+	declare outdated="$(npm --prefix="${XDG_DATA_HOME}"/npm --color=always -g outdated </dev/null)"
+	if [[ -z "$outdated" ]]; then
+		return
+	fi
+	echo "$outdated" |
 		fzf --ansi --header-lines 1 -m --nth 1 |
 		awk '{ print $1 }' |
 		xargs --verbose --no-run-if-empty -I % \

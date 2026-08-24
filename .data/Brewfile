@@ -1,5 +1,4 @@
 tap "adoptopenjdk/openjdk"
-tap "anomalyco/tap"
 tap "common-fate/granted"
 tap "mutagen-io/mutagen"
 # Download with resuming and segmented downloading
