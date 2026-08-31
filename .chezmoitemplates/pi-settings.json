@@ -4,13 +4,14 @@
     "npm:@aliou/pi-guardrails",
     "npm:@dietrichgebert/ponytail",
     "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@juicesharp/rpiv-todo",
     "npm:@plannotator/pi-extension",
     "npm:@tintinweb/pi-subagents",
     "npm:pi-lens",
     "npm:pi-mcp-adapter",
     "npm:pi-web-access"
   ],
-  "lastChangelogVersion": "0.84.2",
+  "lastChangelogVersion": "0.84.4",
   "theme": "dark",
   "defaultProvider": "llm-gateway-fireworks",
   "defaultModel": "accounts/fireworks/models/glm-5p2",
@@ -18,7 +19,7 @@
   "defaultThinkingLevel": "medium",
   "enabledModels": [
     "llm-gateway-openai/gpt-5.6-terra",
-    "llm-gateway-fireworks/accounts/fireworks/models/glm-5p2",
+    "llm-gateway-fireworks/accounts/fireworks/models/glm-*",
     "llm-gateway-fireworks/accounts/fireworks/models/kimi-k3",
     "llm-gateway-fireworks/accounts/fireworks/models/qwen3p8-max"
   ]
