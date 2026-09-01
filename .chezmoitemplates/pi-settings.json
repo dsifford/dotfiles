@@ -7,7 +7,6 @@
     "npm:@juicesharp/rpiv-todo",
     "npm:@plannotator/pi-extension",
     "npm:@tintinweb/pi-subagents",
-    "npm:pi-lens",
     "npm:pi-mcp-adapter",
     "npm:pi-web-access"
   ],
