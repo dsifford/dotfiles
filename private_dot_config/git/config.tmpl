@@ -32,6 +32,8 @@
 
 [delta]
     theme = dracula
+    navigate = true # use n and N to move between diff sections
+    side-by-side = true
 
 [diff]
     tool = nvimdiff
@@ -51,15 +53,13 @@
 
 [merge]
     tool = nvimdiff
+    conflictStyle = zdiff3
 
 [mergetool]
     prompt = true
 
 [mergetool "nvimdiff"]
     cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-
-[pager]
-    diff = delta --navigate
 
 [pretty]
     compact = format:%C(auto)%h %ar %C(auto)%d %s
