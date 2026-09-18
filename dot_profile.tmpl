@@ -34,8 +34,6 @@ export NODE_REPL_HISTORY=
 export NODE_REPL_MODE=strict
 export NPM_CONFIG_GLOBALCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export NPM_CONFIG_USERCONFIG=$XDG_DATA_HOME/npm/npmrc
-export NVM_DIR=$XDG_CONFIG_HOME/nvm
-export PYENV_ROOT=$XDG_DATA_HOME/pyenv
 export PYLINTHOME=$XDG_CACHE_HOME/pylint
 export PYLINTRC=$XDG_CONFIG_HOME/pylint/pylintrc
 export PYTHONUSERBASE=~/.local
@@ -77,11 +75,6 @@ if command -v fzf > /dev/null; then
     [ -n "$TMUX" ] && export FZF_TMUX=1
 fi
 
-# shellcheck disable=SC1091
-[ -r "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-# shellcheck disable=SC1091
-[ -r "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
-
 if command -v firefox-developer-edition; then
     export BROWSER=firefox-developer-edition
 fi
@@ -94,12 +87,6 @@ fi
 if command -v rustc > /dev/null; then
     RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
     export RUST_SRC_PATH
-fi
-
-if command -v pyenv > /dev/null; then
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
 fi
 
 if command -v docker > /dev/null; then
@@ -137,6 +124,13 @@ export PANTS_LINT=true
 export REMOTE_IP=dsifford-private.ripplingtest.com
 export REMOTE_PRIVATE_KEY_FILE="/Users/dsifford/.ssh/id_ed25519"
 export SKIP_CHECK_VPN=true
+export WASMER_DIR="/Users/derek/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
+
+if command -v mise >/dev/null 2>&1; then
+  export MISE_EXPERIMENTAL=1
+  eval "$(mise activate bash && mise activate bash --shims)"
+fi
 
 # breaks the LDE
 unset DOCKER_CONFIG

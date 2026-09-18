@@ -5,8 +5,7 @@
 declare newpath
 declare -a path=(
     ~/.local/bin
-    "${XDG_DATA_HOME:-$HOME/.local/share}"/{cargo,go,npm,pyenv}/bin
-    "$PYENV_ROOT"/shims
+    "${XDG_DATA_HOME:-$HOME/.local/share}"/{cargo,go,npm}/bin
     /usr/local/opt/openssl/bin
     /opt/homebrew/opt/*/libexec/gnubin
     /usr/local/opt/gnu-getopt/bin

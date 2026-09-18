@@ -61,6 +61,8 @@ brew "keychain"
 brew "less"
 # Postgres C API library
 brew "libpq"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -69,16 +71,10 @@ brew "neovim"
 brew "node"
 # Libraries for security-enabled client and server applications
 brew "nss"
-# Manage multiple Node.js versions
-brew "nvm"
 # Package compiler and linker metadata toolkit
 brew "pkgconf"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
-# Python version management
-brew "pyenv"
-# Pyenv plugin to manage virtualenv
-brew "pyenv-virtualenv"
 # Install various Ruby versions and implementations
 brew "ruby-build"
 # Ruby version manager
