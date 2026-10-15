@@ -1,6 +1,4 @@
-tap "adoptopenjdk/openjdk"
 tap "common-fate/granted"
-tap "mutagen-io/mutagen"
 # Download with resuming and segmented downloading
 brew "aria2"
 # Archival front-end
