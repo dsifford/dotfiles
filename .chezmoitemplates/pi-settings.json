@@ -7,20 +7,17 @@
     "npm:@juicesharp/rpiv-todo",
     "npm:@plannotator/pi-extension",
     "npm:@tintinweb/pi-subagents",
-    "npm:glimpseui",
     "npm:pi-web-access"
   ],
-  "lastChangelogVersion": "1.2.0",
+  "lastChangelogVersion": "1.4.0",
   "theme": "dark",
-  "defaultProvider": "llm-gateway-fireworks",
-  "defaultModel": "accounts/fireworks/models/glm-5p3",
+  "defaultProvider": "llm-gateway-bedrock",
+  "defaultModel": "global.zai.glm-5.3",
   "enableInstallTelemetry": false,
   "defaultThinkingLevel": "medium",
   "enabledModels": [
     "llm-gateway-openai/gpt-6*",
-    "llm-gateway-fireworks/accounts/fireworks/models/glm-*",
-    "llm-gateway-fireworks/accounts/fireworks/models/kimi-k3",
-    "llm-gateway-fireworks/accounts/fireworks/models/qwen3p8-max",
+    "llm-gateway-bedrock/global.zai.glm-5.*",
     "llm-gateway-bedrock/us.anthropic.claude-*"
   ]
 }
